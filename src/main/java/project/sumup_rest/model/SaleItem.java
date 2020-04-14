@@ -1,19 +1,17 @@
 package project.sumup_rest.model;
 
-import java.util.UUID;
-
 public class SaleItem {
-  String id;
+  Integer id;
   String name;
   double price;
 
-  public SaleItem(String name, double price) {
-    this.id = UUID.randomUUID().toString();
+  public SaleItem(Integer id, String name, double price) {
+    this.id = id;
     this.name = name;
     this.price = price;
   }
 
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 

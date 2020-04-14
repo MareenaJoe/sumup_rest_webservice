@@ -1,14 +1,16 @@
 package project.sumup_rest.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class Event {
   UUID eventID;
   private String eventTitle;
-  private List<String> saleItemList = new ArrayList<>();
+  private Map<Integer, SaleItem> saleItemList = new HashMap<>();
   private String eventContent;
   private LocalDateTime createDateTime;
 
@@ -23,12 +25,12 @@ public class Event {
     return eventContent;
   }
 
-  public List<String> getSaleItemList() {
-    return saleItemList;
+  public List<SaleItem> getSaleItemList() {
+    return saleItemList.values().stream().collect(Collectors.toList());
   }
 
   public void setSaleItemList(List<SaleItem> saleItemList) {
-    saleItemList.forEach(item -> this.saleItemList.add(item.id));
+    saleItemList.forEach(item -> this.saleItemList.put(item.id, item));
   }
 
   public void setEventContent(String eventContent) {

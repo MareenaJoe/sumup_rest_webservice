@@ -20,8 +20,8 @@ public class EventController {
   }
 
   @GetMapping("/saleitem/{id}")
-  public SaleItem getSaleItemById(@PathVariable String id) {
-    return service.findSaleItemById(UUID.fromString(id));
+  public SaleItem getSaleItemById(@PathVariable int id) {
+    return service.findSaleItemById(id);
   }
 
   @GetMapping("")

@@ -48,11 +48,8 @@ public class EventsService {
     eventsMap.replace(event.getEventID(), event, event);
   }
 
-  public SaleItem findSaleItemById(UUID fromString) {
-    return saleItemList.stream()
-        .filter(item -> item.getId().equalsIgnoreCase(fromString.toString()))
-        .findFirst()
-        .get();
+  public SaleItem findSaleItemById(Integer id) {
+    return saleItemList.stream().filter(item -> item.getId().equals(id)).findFirst().get();
   }
 
   private List<Event> getRandomEventList() {
@@ -70,16 +67,16 @@ public class EventsService {
 
   private List<SaleItem> getRandomSaleItemList() {
     List<SaleItem> itemList = new ArrayList<>();
-    SaleItem saleItem1 = new SaleItem("Tea", 2.0);
-    SaleItem saleItem2 = new SaleItem("Coffee", 2.5);
-    SaleItem saleItem3 = new SaleItem("Scones", 1.5);
-    SaleItem saleItem4 = new SaleItem("Pastry1", 1.23);
-    SaleItem saleItem5 = new SaleItem("Pastry2", 1.35);
-    SaleItem saleItem6 = new SaleItem("Pastry3", 1.35);
-    SaleItem saleItem7 = new SaleItem("Pastry4", 1.35);
-    SaleItem saleItem8 = new SaleItem("Pastry5", 1.35);
-    SaleItem saleItem9 = new SaleItem("Pastry6", 1.35);
-    SaleItem saleItem10 = new SaleItem("Pastry7", 1.35);
+    SaleItem saleItem1 = new SaleItem(1, "Ticket", 2.0);
+    SaleItem saleItem2 = new SaleItem(2, "Coffee", 2.5);
+    SaleItem saleItem3 = new SaleItem(3, "Tea", 1.5);
+    SaleItem saleItem4 = new SaleItem(4, "Popcorn", 1.23);
+    SaleItem saleItem5 = new SaleItem(5, "Scones", 1.35);
+    SaleItem saleItem6 = new SaleItem(6, "Chocolate", 1.35);
+    SaleItem saleItem7 = new SaleItem(7, "Pastry1", 1.35);
+    SaleItem saleItem8 = new SaleItem(8, "Pastry2", 1.35);
+    SaleItem saleItem9 = new SaleItem(9, "Pastry3", 1.35);
+    SaleItem saleItem10 = new SaleItem(10, "Pastry4", 1.35);
     itemList.add(saleItem1);
     itemList.add(saleItem2);
     itemList.add(saleItem3);
